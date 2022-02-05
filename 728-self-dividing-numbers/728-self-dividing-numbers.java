@@ -1,20 +1,27 @@
 class Solution {
-    //Function to Print the Self Dividing Numbers
-    public List<Integer> selfDividingNumbers(int a, int b) {
-         ArrayList<Integer> list=new ArrayList<>();
-        for (int i = a ;i <= b; i++) {
-            if(check(i)) list.add(i);
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> ans = new ArrayList();
+        for (int n = left; n <= right; ++n) {
+            if (selfDividing(n)) ans.add(n);
         }
-        return list;
+        return ans;
     }
-    //Function to Check Whether a Numebr is Self-Dividing
-    private static boolean check(int x) {
-        int tem=x;
-       while(tem>0){//We're simultaneoulsy checking whether a digit is 0 and whether that digit divides the number
-           if(tem%10==0)return false;
-           if(x%(tem%10)!=0)return false;
-           tem/=10;
-       }
-       return true;
+    public boolean selfDividing(int n) {
+        for (char c: String.valueOf(n).toCharArray()) {
+            if (c == '0' || (n % (c - '0') > 0))
+                return false;
+        }
+        return true;
     }
+    /*
+    Alternate implementation of selfDividing:
+    public boolean selfDividing(int n) {
+        int x = n;
+        while (x > 0) {
+            int d = x % 10;
+            x /= 10;
+            if (d == 0 || (n % d) > 0) return false;
+        }
+        return true;
+    */
 }
