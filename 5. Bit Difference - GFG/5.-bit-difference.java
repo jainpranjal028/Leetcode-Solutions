@@ -19,20 +19,11 @@ class Solution{
         int count=0;
         while(a!=0 || b !=0)
         {
-            if((a&1)==1)
+            if((a&1)!=(b&1))
             {
-                if((b&1)==0)
-                {
-                    count++;
-                }
+                 count++;
             }
-            if((a&1)==0)
-            {
-                if((b &1)==1)
-                {
-                    count++;
-                }
-            }
+
             a = a>>1;
             b = b>>1;
         }
