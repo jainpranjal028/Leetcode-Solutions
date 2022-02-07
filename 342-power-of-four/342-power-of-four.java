@@ -15,15 +15,11 @@ class Solution {
             {
                 return false;
             }
-            
         }
         if(k%2==1)
         {
             return true;
         }
         return false;
-        
-        
-        
     }
 }
