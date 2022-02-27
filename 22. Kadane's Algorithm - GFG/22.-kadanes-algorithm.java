@@ -43,7 +43,7 @@ class Solution{
         for(int i=1; i<n; i++)
         {
 
-             if(currentBest >= 0)
+             if(currentBest > 0)
              {
                  currentBest = currentBest + arr[i];
                  
